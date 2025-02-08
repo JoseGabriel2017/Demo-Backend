@@ -32,8 +32,9 @@ public class GeneroController {
 
     @GetMapping("/{id}")
     public ResponseEntity<GeneroModel> getById(@PathVariable Long id) {
-        Optional<GeneroModel> genero = generoRepository.findById(id);
-        return genero.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        return generoRepository.findById(id)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping

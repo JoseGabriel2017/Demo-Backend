@@ -1,18 +1,8 @@
 package br.edu.ifba.demo.backend.api.model;
 
 import lombok.Data;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Data
 @Entity
@@ -22,42 +12,60 @@ public class LivroModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_livro")
-    private Long id_livro;
+    private Long idLivro;
 
-    @ManyToOne
-    @JoinColumn(name = "id_genero", nullable = true)
-    private GeneroModel genero;
-
-    @Column(name = "titulo", nullable = false)
+    @Column(nullable = false)
     private String titulo;
 
-    @Column(name = "autor", nullable = false)
+    @Column(nullable = false)
     private String autor;
 
-    @Column(name = "editora", nullable = true)
+    @Column(nullable = false)
     private String editora;
 
-    @Column(name = "ano_publicacao", nullable = true)
-    private Integer ano_publicacao;
+    @Column(name = "ano_publicacao")
+    private Integer anoPublicacao;
 
-    @Column(name = "genero", nullable = true)
-    private String genero;
+    @Column(name = "isbn")
+    private String isbn;
 
-    @Column(name = "isbn", nullable = true)
-    private Integer isbn;
+    @Column(name = "num_paginas")
+    private Integer numPaginas;
 
-    @Column(name = "num_paginas", nullable = true)
-    private Integer num_paginas;
-
-    @Column(name = "sinopse", nullable = true)
+    @Column(name = "sinopse")
     private String sinopse;
 
-    @Column(name = "idioma", nullable = true)
+    @Column(name = "idioma")
     private String idioma;
 
-    @Column(name = "data_cadastro", nullable = true)
-    private LocalDateTime data_cadastro;
+    @Column(name = "data_cadastro")
+    private LocalDateTime dataCadastro;
 
-    @Column(name = "preco", nullable = true)
+    @Column(name = "preco")
     private Double preco;
+
+    @ManyToOne
+    @JoinColumn(name = "genero_id_genero")
+    private GeneroModel genero;
+
+    public LivroModel() {
+    }
+
+    public LivroModel(Long idLivro, String titulo, String autor, String editora, Integer anoPublicacao,
+            GeneroModel genero,
+            String isbn, Integer numPaginas, String sinopse, String idioma, LocalDateTime dataCadastro,
+            Double preco) {
+        this.idLivro = idLivro;
+        this.titulo = titulo;
+        this.autor = autor;
+        this.editora = editora;
+        this.anoPublicacao = anoPublicacao;
+        this.genero = genero;
+        this.isbn = isbn;
+        this.numPaginas = numPaginas;
+        this.sinopse = sinopse;
+        this.idioma = idioma;
+        this.dataCadastro = dataCadastro;
+        this.preco = preco;
+    }
 }
