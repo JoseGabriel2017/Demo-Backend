@@ -1,6 +1,6 @@
 
-CREATE DATABASE IF NOT EXISTS Projeto_Othon;
-USE Projeto_Othon;
+CREATE DATABASE IF NOT EXISTS Projeto_Crud;
+USE Projeto_Crud;
 
 
 CREATE TABLE IF NOT EXISTS usuario (
@@ -49,7 +49,8 @@ INSERT INTO usuario (login, senha) VALUES
 ('leitor', 'leitor2024'),
 ('editor', 'editor2024');
 
+
 INSERT INTO livro (titulo, autor, editora, ano_publicacao, isbn, num_paginas, sinopse, idioma, preco, genero_id_genero) VALUES 
 ('1984', 'George Orwell', 'Companhia das Letras', '1949', '9788535902772', 328, 'Uma distopia sobre vigilância e controle.', 'Português', 49.90, 3),
 ('O Hobbit', 'J.R.R. Tolkien', 'HarperCollins', '1937', '9788595084742', 310, 'A jornada de Bilbo Bolseiro pela Terra Média.', 'Português', 59.90, 4),
-('Cem Anos de Solidão', 'Gabriel García Márquez', 'Record', '1967', '9788501016074', 432, 'A história da família Buendía em Macondo.', 'Português', 69.90, 5);****
+('Cem Anos de Solidão', 'Gabriel García Márquez', 'Record', '1967', '9788501016074', 432, 'A história da família Buendía em Macondo.', 'Português', 69.90, 5);
