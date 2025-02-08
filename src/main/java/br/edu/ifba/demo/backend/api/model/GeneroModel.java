@@ -8,11 +8,11 @@ import lombok.Data;
 @Table(name = "genero")
 public class GeneroModel {
 
+    @Column(name = "genero_nome", nullable = false, unique = true)
+    private String generoNome;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_genero")
-    private Long id_genero;
-
-    @Column(name = "nome", nullable = false, unique = true)
-    private String nome;
+    private Long idGenero;
 }
